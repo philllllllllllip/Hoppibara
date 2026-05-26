@@ -15,7 +15,9 @@ kaboom({
   background: [255, 211, 147],
   color: [0, 0, 0],
   backgroundAudio: true,
-  scale: 1, // Scale to fit the screen
+  scale: 1,
+  width: window.innerWidth,
+  height: window.innerHeight,
 });
 
 debug.inspect = false;
@@ -47,10 +49,10 @@ loadSprite("Main", "/sprites/Board.svg");
 loadSprite("Text", "/sprites/Button.svg");
 loadSprite("oranges", "/sprites/obstacle1.png");
 
-loadFont("MainFont", "/sprites/BaiJamjuree-Bold.ttf", { 
-  size: 50, 
-  outline: .1, 
-  outlineColor: [0, 0, 0] 
+loadFont("MainFont", "/sprites/BaiJamjuree-Bold.ttf", {
+  size: 50,
+  outline: 0.1,
+  outlineColor: [0, 0, 0],
 });
 
 loadSound("MainMusic", "/sprites/MainMusic.mp3");
@@ -60,7 +62,6 @@ loadSound("Point", "/sprites/Point.wav");
 let music;
 
 function PlayMusic(trackName) {
-  console.log(`Playing music: ${trackName}`);
   if (music) {
     music.stop();
   }
@@ -71,11 +72,11 @@ function PlayMusic(trackName) {
 }
 
 scene("game", (score) => {
-  setGravity(1000);
+  setGravity(1800);
 
   const player = add([
     sprite("bean", { anim: "Run" }),
-    pos(width() * 0.1, height() * 0.1), // Relative positioning
+    pos(width() * 0.1, height() * 0.1),
     rotate(0),
     area(),
     body(),
@@ -147,7 +148,6 @@ scene("game", (score) => {
     if (player.isGrounded()) {
       let spinAngle = 0;
       const SPIN_SPEED = 500;
-      const JUMP_DURATION = 0.1;
 
       const spinInterval = setInterval(() => {
         const increment = SPIN_SPEED * dt();
@@ -190,7 +190,6 @@ scene("game", (score) => {
 
   function EnemySpawn() {
     const randomSprite = randomChoice(EnemySprites);
-    console.log("Spawned sprite:", randomSprite); // Debugging line
 
     if (randomSprite == "Box") {
       add([
@@ -234,7 +233,7 @@ scene("game", (score) => {
       size: 50,
     }),
     color(0, 0, 0),
-    pos(width() * 0.5, height() * 0.05), // Relative positioning
+    pos(width() * 0.5, height() * 0.03),
     z(4),
   ]);
 });
@@ -247,7 +246,7 @@ scene("MainScreen", (score) => {
   const mainSprite = add([
     sprite("Main"),
     pos(width() / 2, height() / 2),
-    scale(Math.min(width() / 1900, height() / 720)), // Dynamic scaling
+    scale(Math.min(width() / 1900, height() / 720)),
     anchor("center"),
   ]);
 
