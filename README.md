@@ -1,7 +1,7 @@
 # Hoppibara 
 
 ## Overview
-MyGame is an exciting platformer game built using the Kaboom.js game development library. The game features a character that runs, jumps, and avoids obstacles while collecting points.
+MyGame is an exciting platformer game built using the Kaboom.js game development library. The game features a character that runs, jumps, and avoids obstacles while collecting points. 
 
 ## Features
 - Fullscreen gameplay
@@ -11,7 +11,7 @@ MyGame is an exciting platformer game built using the Kaboom.js game development
 - Randomly spawning enemies and obstacles
 - Score tracking
 
-## Preview
+## Preview (pre fork)
 https://github.com/user-attachments/assets/2e04aa6c-ca92-4ef0-9496-949b3d1cefce
 
 ## Installation
